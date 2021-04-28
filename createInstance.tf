@@ -26,6 +26,7 @@ resource "aws_instance" "nginx_server" {
   instance_type = "t2.micro"
   key_name      = aws_key_pair.levelup_key.key_name
   associate_public_ip_address = true
+  security_groups = [aws_security_group.sg-custom_eu_west.id]
   
   tags = {
     Name = "Nginx Server"

@@ -1,0 +1,16 @@
+# ignore terraform folder from the terraform init
+.terraform/
+
+# ignore terraform variables
+*.tfvars
+
+# ignore the .lock.hcl
+*.lock.hcl
+
+# ignore state files
+#terraformstate file
+*.tfstate
+*.tfstate.*
+# ignore public and private key
+levelup_key
+levelup_key.pub

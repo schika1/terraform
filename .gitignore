@@ -14,3 +14,7 @@
 # ignore public and private key
 levelup_key
 levelup_key.pub
+key
+key.*
+# sh file
+*.sh

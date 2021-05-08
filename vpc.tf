@@ -1,5 +1,7 @@
-resource "aws_default_vpc" "default" {
+resource "aws_vpc" "schika_limited" {
+  cidr_block = "10.0.0.0/16"
+
   tags = {
-    Name = "Default VPC"
+    "Name" = "schika_limited"
   }
 }

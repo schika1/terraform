@@ -3,11 +3,10 @@ Terraform Projects
 
 This project is based on creating IAM users using Terraform
 
-We are to define the following:
-# the Users
-# The Group(s)
-# attach the users to a group
-# define a policy to guide the group and also the policy arn(Amazon Resource Name)
+This project deals with EC2 role to s3 bucket.
 
-## NOTE: do not use terraform-destroy after provisioning, it might incure cost to your account.
+we created an s3 bucket, use some remote-exec provisioning to install some dependencies
+create a file called myfile.txt
+upload the file to the s3 bucket
+
 

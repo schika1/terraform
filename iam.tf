@@ -1,28 +1,50 @@
-# CREATE IAM USERS
-resource "aws_iam_user" "ezeja" {
-  name = "ezeja"
+#Roles to access the AWS S3 Bucket
+resource "aws_iam_role" "s3-role" {
+  name               = "s3-role"
+  assume_role_policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": "sts:AssumeRole",
+      "Principal": {
+        "Service": "ec2.amazonaws.com"
+      },
+      "Effect": "Allow",
+      "Sid": ""
+    }
+  ]
+}
+EOF
+
 }
 
-resource "aws_iam_user" "chika" {
- name = "chika" 
+#Policy to attach the S3 Bucket Role
+resource "aws_iam_role_policy" "s3-role-policy" {
+  name = "s3-role-policy"
+  role = aws_iam_role.s3-role.id
+  policy = <<EOF
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+              "s3:*"
+            ],
+            "Resource": [
+              "arn:aws:s3:::csamcomapnys3",
+              "arn:aws:s3:::csamcomapnys3/*"
+            ]
+        }
+    ]
+}
+EOF
+
 }
 
-# define the name of the aws group
-resource "aws_iam_group" "developer" {
-  name = "developer"
-}
-
-# associate users to member of a group
-resource "aws_iam_group_membership" "developers" {
-  name = "developers"
-  users = [aws_iam_user.ezeja.name, aws_iam_user.chika.name ]
-  group = aws_iam_group.developer.name
-}
-
-# attach the policies to group
-## if you use the AdministratorAccess, do not use terraform destroy
-resource "aws_iam_policy_attachment" "developers_policy" {
-  name = "developers-user-policy"
-  groups = [aws_iam_group.developer.name]
-  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
+#Instance identifier
+resource "aws_iam_instance_profile" "s3-role-instanceprofile" {
+  name = "s3-role"
+  role = aws_iam_role.s3-role.name
 }

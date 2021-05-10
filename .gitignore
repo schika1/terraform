@@ -16,3 +16,5 @@ levelup_key
 levelup_key.pub
 key
 key.pub
+# don't share the variable file
+variables.tf

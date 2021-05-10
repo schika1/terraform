@@ -1,10 +1,10 @@
 # terraform
 Terraform Projects
 
-This project is based on creating IAM users using Terraform
+This project deals with auto scaling.
+TO perform autoscaling, we have to check out some important facts.
 
-This project deals with EC2 role to s3 bucket.
-
-we created an s3 bucket, use some remote-exec provisioning to install some dependencies
-create a file called myfile.txt
-upload the file to the s3 bucket
+FACTS LIKE:
+* AUTO SCALING LAUNCH CONFIGURATION
+* THE VALUE KEY PAIR TO BE USED BY THE AUTOSCALING LAUNCH CONFIGURATION
+* DEFINES SOME AUTO SCALING POLICY AND THE CLOUDWATCH TO WATCH FOR THE POLICY AND TRIGGER THE AUTO SCALING GROUP

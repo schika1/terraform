@@ -1,10 +1,4 @@
 # terraform
 Terraform Projects
 
-This project deals with auto scaling.
-TO perform autoscaling, we have to check out some important facts.
-
-FACTS LIKE:
-* AUTO SCALING LAUNCH CONFIGURATION
-* THE VALUE KEY PAIR TO BE USED BY THE AUTOSCALING LAUNCH CONFIGURATION
-* DEFINES SOME AUTO SCALING POLICY AND THE CLOUDWATCH TO WATCH FOR THE POLICY AND TRIGGER THE AUTO SCALING GROUP
+Automating the deploying of Tomcat Sever using terraform
